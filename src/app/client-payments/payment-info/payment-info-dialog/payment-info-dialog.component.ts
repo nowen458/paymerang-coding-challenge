@@ -11,7 +11,7 @@ export class PaymentInfoDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<PaymentInfoDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) private payment: PaymerangPayment) { }
+    @Inject(MAT_DIALOG_DATA) public payment: PaymerangPayment) { }
 
   ngOnInit(): void {
   }
