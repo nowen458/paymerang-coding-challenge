@@ -14,10 +14,19 @@
     </mat-tab>
 
     <mat-tab label='Payment'>
-        hello
+        <p class='contentPadding'>PAN: {{ payment.Payment.PAN }}</p>
+        <P>CVV: {{ payment.Payment.CVV }}</P>
+        <p>Expiration: {{ payment.Payment.Exp }}</p>
     </mat-tab>
 
     <mat-tab label='Remittance'>
-        hello
+        <div class='contentPadding' *ngFor='let remittanceItem of payment.Remittance'>
+            <p>Payor Name: {{ remittanceItem.PayorName }}</p>
+            <p>Payor Id: {{ remittanceItem.PayorId }}</p>
+            <p>Invoice Number: {{ remittanceItem.InvoiceNo }}</p>
+            <p>Description: {{ remittanceItem.Description }}</p>
+            <p>Amount: {{ remittanceItem.Amount }}</p>
+            <hr>
+        </div>
     </mat-tab>
 </mat-tab-group>

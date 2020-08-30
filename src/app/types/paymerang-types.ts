@@ -26,7 +26,7 @@ export class Address {
 export class Payment {
     PAN: string;
     CVV: string;
-    Exp: Date;
+    Exp: string;
 }
 
 export class Remittance {
