@@ -1,1 +1,23 @@
-<h2 mat-dialog-title>This is a Dialog title</h2>
+<mat-tab-group>
+    <mat-tab label='Payee'>
+        <p class='contentPadding'>Name: {{ payment.Payee.Name }}</p>
+        <p>Fax: {{ payment.Payee.Fax }}</p>
+        <p>Phone: {{ payment.Payee.Phone }}</p>
+        <span *ngIf='payment.Payee.Address.Address2 != ""'>
+            <p>Address: {{ payment.Payee.Address.Address1 }}, {{ payment.Payee.Address.Address2 }}, {{ payment.Payee.Address.City }}, {{ payment.Payee.Address.StateOrProvince }}, {{ payment.Payee.Address.PostalCode }}, {{ payment.Payee.Address.Country }}</p>
+        </span>
+        <span *ngIf='payment.Payee.Address.Address2 == ""'>
+            <p>Address: {{ payment.Payee.Address.Address1 }}, {{ payment.Payee.Address.City }}, {{ payment.Payee.Address.StateOrProvince }}, {{ payment.Payee.Address.PostalCode }}, {{ payment.Payee.Address.Country }}</p>
+        </span>
+        <p>Attention: {{ payment.Payee.Attention }}</p>
+        <p>Submission Data: {{ payment.Payee.SubmissionDate | date:'MM/dd/yyyy' }}</p>
+    </mat-tab>
+
+    <mat-tab label='Payment'>
+        hello
+    </mat-tab>
+
+    <mat-tab label='Remittance'>
+        hello
+    </mat-tab>
+</mat-tab-group>
