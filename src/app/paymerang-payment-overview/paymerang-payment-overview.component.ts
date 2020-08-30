@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../services/payment-service';
-import { PaymerangPayment } from '../types/paymerang-types';
+import { PaymerangPayment, Remittance } from '../types/paymerang-types';
 
 @Component({
   selector: 'app-paymerang-payment-overview',
@@ -16,5 +16,4 @@ export class PaymerangPaymentOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.paymentData = this.paymentService.getPaymentData();
   }
-
 }

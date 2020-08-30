@@ -13,13 +13,27 @@ export class PaymentService {
         } catch (error) {
             console.log(error);
         }
+
+        // normally we would already have this calculated and stored in a db field,
+        // but for the purposes of this tutorial, we'll just calculate here
+        paymentData.forEach(pd => {
+            pd.TotalRemittanceAmount = this.calculateTotalRemittanceAmount(pd.Remittance);
+        });
         
         return paymentData;
     }
 
-    public calculateTotalRemittanceAmount(remittanceItems: Remittance[]): number {
-        var test = 5;
+    private calculateTotalRemittanceAmount(remittanceItems: Remittance[]): number {
+        var totalAmount = 0;
 
-        return test;
+        remittanceItems.forEach(r => {
+            console.log(r);
+            // using parseFloat results in calculation issues (due to JS)
+            // and using parseInt only results in whole numbers. for the 
+            // purposes of this challenge, will go with parseInt for now
+            totalAmount += parseInt(r.Amount.substring(1).replace(',',''));
+        })
+        console.log(totalAmount);
+        return totalAmount;
     }
 }

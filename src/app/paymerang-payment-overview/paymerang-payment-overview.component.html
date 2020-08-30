@@ -1,7 +1,30 @@
 <div class='container'>
     <div class='row'>
-        <div class='col-xl-12'>
+        <div class='col-xl-12' id='page-header'>
             <h1 class='text-center'>Payments</h1>
+        </div>
+    </div>
+
+    <div *ngIf='paymentData && paymentData.length > 0' class='row'>
+        <div class='col-xl-12' id='payment-data-table'>
+            <table class='table table-striped'>
+                <thead>
+                    <tr>
+                        <th scope="col">Payee Name</th>
+                        <th scope="col">Submission Date</th>
+                        <th scope="col">Total Remittance Amount</th>
+                        <th scope="col">Number of Payors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let data of paymentData'>
+                        <th scope="row"> {{ data.Payee.Name }} </th>
+                        <td> {{ data.Payee.SubmissionDate }} </td>
+                        <td>{{ data.TotalRemittanceAmount | currency }}</td>
+                        <td>{{ data.Remittance.length }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

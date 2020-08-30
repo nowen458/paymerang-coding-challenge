@@ -1,10 +1,11 @@
-export interface PaymerangPayment {
+export class PaymerangPayment {
     Payee: Payee;
     Payment: Payment;
     Remittance: Remittance[];
+    TotalRemittanceAmount: number;
 }
 
-export interface Payee {
+export class Payee {
     Name: string;
     Fax: string;
     Phone: string;
@@ -13,7 +14,7 @@ export interface Payee {
     SubmissionDate: Date;
 }
 
-export interface Address {
+export class Address {
     Address1: string;
     Address2: string;
     City: string;
@@ -22,16 +23,16 @@ export interface Address {
     PostalCode: string;
 }
 
-export interface Payment {
+export class Payment {
     PAN: string;
     CVV: string;
     Exp: Date;
 }
 
 export class Remittance {
-    payorName: string;
-    payorId: string;
-    invoiceNo: string;
-    description: string;
-    amount: number;
+    PayorName: string;
+    PayorId: string;
+    InvoiceNo: string;
+    Description: string;
+    Amount: string;
 }
