@@ -1,31 +1,31 @@
-export class PaymerangPayment {
-    payee: Payee;
-    payment: Payment;
-    remittance: Remittance[];
+export interface PaymerangPayment {
+    Payee: Payee;
+    Payment: Payment;
+    Remittance: Remittance[];
 }
 
-export class Payee {
-    name: string;
-    fax: string;
-    phone: string;
-    address: Address;
+export interface Payee {
+    Name: string;
+    Fax: string;
+    Phone: string;
+    Address: Address;
     Attention: string;
     SubmissionDate: Date;
 }
 
-export class Address {
-    address1: string;
-    address2: string;
-    city: string;
-    stateOrProvince: string;
-    county: string;
-    postalCode: string;
+export interface Address {
+    Address1: string;
+    Address2: string;
+    City: string;
+    StateOrProvince: string;
+    County: string;
+    PostalCode: string;
 }
 
-export class Payment {
-    pan: string;
-    cvv: string;
-    exp: Date;
+export interface Payment {
+    PAN: string;
+    CVV: string;
+    Exp: Date;
 }
 
 export class Remittance {
