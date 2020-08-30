@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { PaymerangPaymentOverviewComponent } from './paymerang-payment-overview/paymerang-payment-overview.component';
 import { PaymentService } from '../app/services/payment-service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'payments',     component: PaymerangPaymentOverviewComponent},
@@ -16,7 +18,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    PaymerangPaymentOverviewComponent
+    PaymerangPaymentOverviewComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

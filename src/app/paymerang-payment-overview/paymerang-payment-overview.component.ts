@@ -15,8 +15,6 @@ export class PaymerangPaymentOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.paymentData = this.paymentService.getPaymentData();
-
-    console.log(this.paymentData[0].Payee);
   }
 
 }
