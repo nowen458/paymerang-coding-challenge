@@ -27,13 +27,11 @@ export class PaymentService {
         var totalAmount = 0;
 
         remittanceItems.forEach(r => {
-            console.log(r);
             // using parseFloat results in calculation issues (due to JS)
             // and using parseInt only results in whole numbers. for the 
             // purposes of this challenge, will go with parseInt for now
             totalAmount += parseInt(r.Amount.substring(1).replace(',',''));
         })
-        console.log(totalAmount);
         return totalAmount;
     }
 }
