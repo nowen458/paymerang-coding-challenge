@@ -2,3 +2,10 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
+.mat-row:hover {
+    background-color: #c892d4;
+    transition: 0.3s;
+    opacity: .9;
+    color: white;
+}

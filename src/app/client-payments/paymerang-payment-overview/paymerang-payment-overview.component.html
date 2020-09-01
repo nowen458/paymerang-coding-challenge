@@ -5,26 +5,35 @@
         </div>
     </div>
 
-    <div *ngIf='paymentData && paymentData.length > 0' class='row'>
+    <div class='row'>
         <div class='col-xl-12' id='payment-data-table'>
-            <table class='table table-striped table-hover'>
-                <thead>
-                    <tr>
-                        <th scope="col">Payee Name</th>
-                        <th scope="col">Submission Date</th>
-                        <th scope="col">Total Remittance Amount</th>
-                        <th scope="col">Number of Payors</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor='let data of paymentData' (click)='openPaymentModal(data)'>
-                        <th scope="row"> {{ data.Payee.Name }} </th>
-                        <td> {{ data.Payee.SubmissionDate | date: 'MM/dd/yyyy'}} </td>
-                        <td>{{ data.TotalRemittanceAmount | currency }}</td>
-                        <td>{{ data.Remittance.length }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let data"> {{ data.Payee.Name }} </mat-cell>
+                </ng-container>
+              
+                <ng-container matColumnDef="submissionDate">
+                  <mat-header-cell *matHeaderCellDef> Submission Date </mat-header-cell>
+                  <mat-cell *matCellDef="let data"> {{ data.Payee.SubmissionDate | date: 'MM/dd/yyyy' }} </mat-cell>
+                </ng-container>
+              
+                <ng-container matColumnDef="totalRemittanceAmount">
+                  <mat-header-cell *matHeaderCellDef> Total Remittance Amount </mat-header-cell>
+                  <mat-cell *matCellDef="let data"> {{ data.TotalRemittanceAmount | currency }} </mat-cell>
+                </ng-container>
+              
+                <ng-container matColumnDef="numberOfPayors">
+                  <mat-header-cell *matHeaderCellDef> Number of Payors </mat-header-cell>
+                  <mat-cell *matCellDef="let data"> {{ data.Remittance.length }} </mat-cell>
+                </ng-container>
+              
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;" (click)='openPaymentModal(row)'></mat-row>
+              </mat-table>
+
         </div>
     </div>
 </div>

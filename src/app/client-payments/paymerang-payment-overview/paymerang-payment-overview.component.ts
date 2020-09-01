@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import { PaymentService } from '../../services/payment-service';
 import { PaymentInfoDialogComponent } from '../payment-info/payment-info-dialog/payment-info-dialog.component';
 import { PaymerangPayment } from '../../types/paymerang-types';
@@ -11,16 +13,21 @@ import { PaymerangPayment } from '../../types/paymerang-types';
 })
 
 export class PaymerangPaymentOverviewComponent implements OnInit {
-  paymentData: Array<PaymerangPayment>;
+  dataSource = new MatTableDataSource<PaymerangPayment>([]);
+  displayedColumns: string[] = ['name', 'submissionDate', 'totalRemittanceAmount', 'numberOfPayors'];
+
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(private paymentService: PaymentService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.paymentData = this.paymentService.getPaymentData();
+    this.dataSource.data = this.paymentService.getPaymentData();
+    this.dataSource.paginator = this.paginator;
   }
 
   openPaymentModal(payment: PaymerangPayment): void {
     var dialogConfig = new MatDialogConfig();
+    console.log(payment);
     const dialogRef = this.dialog.open(PaymentInfoDialogComponent, {
       height: '500px',
       width: '1000px',
