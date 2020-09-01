@@ -26,6 +26,8 @@ export class PaymentService {
     private calculateTotalRemittanceAmount(remittanceItems: Remittance[]): number {
         var totalAmount = 0;
 
+        // not the most accurate way to calculate dollar amounts, but normally this would
+        // probably be calculated in a back-end service that is more accurate
         remittanceItems.forEach(r => {
             totalAmount += parseFloat(r.Amount.substring(1).replace(',',''));
         })
