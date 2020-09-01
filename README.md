@@ -1,27 +1,11 @@
 # PaymerangCodingChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+To see this app in action, go to the following address: 
 
-## Development server
+When first starting the app, you will be brought to the Client Payments page (pictured below).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Client Payments](https://www..github.com/nowen458/paymerang-coding-challenege/readme-images/clientpayments.png)
 
-## Code scaffolding
+You can then click on any of the payments to view detailed information such as Payee, Payment and Remittance information (pictured below).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Client Payment Detailed Information](https://www..github.com/nowen458/paymerang-coding-challenege/readme-images/clientpaymentdetailedinformation.png)
