@@ -19,6 +19,10 @@ export class PaymentService {
         paymentData.forEach(pd => {
             pd.TotalRemittanceAmount = this.calculateTotalRemittanceAmount(pd.Remittance);
         });
+
+        paymentData.forEach(pd => {
+            pd.NumberOfPayors = this.getNumberOfPayors(pd.Remittance);
+        })
         
         return paymentData;
     }
@@ -32,5 +36,9 @@ export class PaymentService {
             totalAmount += parseFloat(r.Amount.substring(1).replace(',',''));
         })
         return totalAmount = parseFloat(totalAmount.toFixed(2));
+    }
+
+    private getNumberOfPayors(remittanceItems: Remittance[]): number {
+        return remittanceItems.length;
     }
 }

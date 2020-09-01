@@ -9,25 +9,25 @@
         <div class='col-xl-12' id='payment-data-table'>
             <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
-            <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-                <ng-container matColumnDef="name">
-                  <mat-header-cell *matHeaderCellDef> Payee Name </mat-header-cell>
+            <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                <ng-container matColumnDef="Name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Payee Name </mat-header-cell>
                   <mat-cell *matCellDef="let data"> {{ data.Payee.Name }} </mat-cell>
                 </ng-container>
               
-                <ng-container matColumnDef="submissionDate">
-                  <mat-header-cell *matHeaderCellDef> Submission Date </mat-header-cell>
+                <ng-container matColumnDef="SubmissionDate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Submission Date </mat-header-cell>
                   <mat-cell *matCellDef="let data"> {{ data.Payee.SubmissionDate | date: 'MM/dd/yyyy' }} </mat-cell>
                 </ng-container>
               
-                <ng-container matColumnDef="totalRemittanceAmount">
-                  <mat-header-cell *matHeaderCellDef> Total Remittance Amount </mat-header-cell>
+                <ng-container matColumnDef="TotalRemittanceAmount">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Total Remittance Amount </mat-header-cell>
                   <mat-cell *matCellDef="let data"> {{ data.TotalRemittanceAmount | currency }} </mat-cell>
                 </ng-container>
               
-                <ng-container matColumnDef="numberOfPayors">
-                  <mat-header-cell *matHeaderCellDef> Number of Payors </mat-header-cell>
-                  <mat-cell *matCellDef="let data"> {{ data.Remittance.length }} </mat-cell>
+                <ng-container matColumnDef="NumberOfPayors">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Payors </mat-header-cell>
+                  <mat-cell *matCellDef="let data"> {{ data.NumberOfPayors }} </mat-cell>
                 </ng-container>
               
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

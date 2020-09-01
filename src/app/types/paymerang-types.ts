@@ -3,6 +3,7 @@ export class PaymerangPayment {
     Payment: Payment;
     Remittance: Remittance[];
     TotalRemittanceAmount: number;
+    NumberOfPayors: number;
 }
 
 export class Payee {
