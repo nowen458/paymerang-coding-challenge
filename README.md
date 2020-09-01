@@ -1,6 +1,6 @@
 # PaymerangCodingChallenge
 
-To see this app in action, go to the following address: 
+To see this app in action, go to the following address: https://mystifying-villani-9310fb.netlify.app
 
 When first starting the app, you will be brought to the Client Payments page (pictured below).
 
